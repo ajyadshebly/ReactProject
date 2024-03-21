@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React, {  } from 'react'
 import About from './pages/About/components/About'
 import Home from './pages/Home/components/Home'
-import Categories from './pages/Categories/components/Categories'
+
 import Products from './pages/Products/components/Products'
 import Contact from './pages/Contact/components/Contact'
 import Cart from './pages/Cart/components/Cart'
@@ -10,46 +10,48 @@ import {
   RouterProvider
 } from 'react-router-dom'
 import Root from './routers/Root'
-import Login from './pages/Login/components/Login'
+import SignIn from './pages/SignIn/components/SignIn'
 import NotFound from './pages/NotFound/NotFound'
+import SignUp from './pages/SignUp/components/SignUp';
+import CategoriesProducts from './pages/Categories/CategoriesProducts'
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: "/",
     element: <Root />,
     errorElement: <NotFound />,
     children: [
       {
-        path: '/',
+        path: "/",
         element: <Home/>
       },
       {
-        path: '/About',
+        path: "/About",
         element: <About />
       },
       {
-        path: '/Categories',
-        element: <Categories />
-      },
-      {
-        path: '/Cart',
+        path: "/Cart",
         element: <Cart />
       },
       {
-        path: '/Products',
+        path: "/Products",
         element: <Products />
       },
       {
-        path: '/Contact',
+        path: "/Categories/:id",
+        element: <CategoriesProducts />
+      },
+      {
+        path: "/Contact",
         element: <Contact />
       },
       {
-        path: '/Login',
-        element: <Login />
+        path: "/SignIn",
+        element: <SignIn/>
       },
       {
-        path: '/singUp',
-        element: <singUp />
+        path: "/SignUp",
+        element: <SignUp/>
       }
     ]
   }
@@ -61,8 +63,7 @@ export default function App() {
     <>
       
       <RouterProvider router={router} />
-   
-      <Home/>
+
     </>
   )
 }

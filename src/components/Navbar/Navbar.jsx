@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link ,NavLink } from 'react-router-dom'
 import './Navbar.css'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 export default function Navbar() {
 
@@ -22,9 +23,9 @@ export default function Navbar() {
               <li className="nav-item">
                 <NavLink className="nav-link"  to="/About" >About us</NavLink>
                 </li>
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <NavLink className="nav-link"   to="/Categories">Categories</NavLink>
-                </li>
+                </li> */}
                 <li className="nav-item">
                 <NavLink className="nav-link"   to="/Cart">Cart</NavLink>
                 </li>
@@ -38,8 +39,8 @@ export default function Navbar() {
 
           </ul>
           <div className="col-md-3 text-end">
-            <button type="button" className="btn btn-outline-secondary me-2">Login</button>
-            <button type="button" className="btn btn-primary">Sign-up</button>
+            <button type="button" className="btn btn-outline-primary me-2 "> <NavLink className="nav-link"  to="/SignIn">Sign-In </NavLink></button>
+            <button type="button" className="btn btn-primary "> <NavLink className="nav-link"  to="/SignUp">Sign-Up </NavLink></button>
           </div>
         </header>
       </div>
