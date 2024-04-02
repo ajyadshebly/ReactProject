@@ -48,7 +48,7 @@ function SendCode() {
 
     return (
         <div className='text-center'>
-            <img src="src\Images\AjyadShop1.svg"  width={70} height={70} className="d-inline-block align-text-top" />
+            <img src={'/images/AjyadShop1.svg'} width={70} height={70} className="d-inline-block align-text-top" />
             <h2 className="h3 mb-3 fw-normal">Enter your email to Send Code</h2>
             <form className='form-signin' onSubmit={handleSubmit}>
                 <div className="form-floating">

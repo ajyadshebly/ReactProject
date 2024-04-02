@@ -27,7 +27,7 @@ function ForgotPassword() {
 
   return (
     <div className='text-center'>
-       <img src="src\Images\AjyadShop1.svg"  width={70} height={70} className="d-inline-block align-text-top" />
+       <img src={'/images/AjyadShop1.svg'}  width={70} height={70} className="d-inline-block align-text-top" />
       <h2 className="h3 mb-3 fw-normal">Reset Your Password</h2>
       <form onSubmit={handleSubmit} className='form-signin'>
         <div className="form-floating">

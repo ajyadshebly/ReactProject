@@ -110,7 +110,7 @@ export default function SignUp() {
     ):''}
  
       <div className='text-center'>
-      <img src="src\Images\AjyadShop1.svg"  width={70} height={70} className="d-inline-block align-text-top" />
+      <img src={'/images/AjyadShop1.svg'}  width={70} height={70} className="d-inline-block align-text-top" />
         <form className='form-signin' onSubmit={handelSubmit}>
           <h1 className="h3 mb-3 fw-normal">Sign Up</h1>
           <div className="form-floating">
