@@ -9,7 +9,7 @@ export default function Footer() {
           <h5>Welcome to our store any time</h5>
         </div>
         <div className="col-6 col-md text-center">
-          <img src="src\Images\AjyadShop1.svg"  width={50} height={50} className="d-inline-block align-text-top" />
+          <img src="src/Images/AjyadShop1.svg"  width={50} height={50} className="d-inline-block align-text-top" />
 
           <p>Ajyad Shop</p>
           <small className="d-block mb-3 text-muted">© 2024</small>

@@ -3,7 +3,7 @@ import React from 'react'
 export default function About() {
   return (
     <div className="container text-center">
-    <img src="src\Images\AjyadShop1.svg"  width={150} height={150} alt="About Us" className="about-image" />
+    <img src="/Images/AjyadShop1.svg"  width={150} height={150} alt="About Us" className="about-image" />
     <div className="about-content">
       <h2>About Us</h2>
       <p>In the Ajyad store, we offer you online shopping for any item you want, whether clothes, electronics, etc.

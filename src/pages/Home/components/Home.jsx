@@ -10,7 +10,7 @@ export default function Home() {
       <Carousel.Item>
         <img
           className="d-block w-100 "
-          src='src\Images\model1.jpg'
+          src='src/Images/model1.jpg'
           style={{ height: '100%', objectFit: 'cover' }}
           alt="men fashion"
         />
@@ -18,7 +18,7 @@ export default function Home() {
       <Carousel.Item>
         <img
           className="d-block w-100 "
-          src="src\Images\appleb.jpg"
+          src="src/Images/appleb.jpg"
           style={{ height: '100%', objectFit: 'cover' }}
           alt="electronices"
         />
@@ -27,7 +27,7 @@ export default function Home() {
       <Carousel.Item>
         <img
           className="d-block w-100"
-          src="src\Images\model6.jpg"
+          src="src/Images/model6.jpg"
           style={{ height: '100%', objectFit: 'cover' }}
           alt="women fashion"
         />
