@@ -3,6 +3,7 @@ import { Link, NavLink, useNavigate } from 'react-router-dom'
 import './Navbar.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { UserContext } from '../../context/User'
+// import logo from '../../Images/AjyadShop1.svg'
 
 
 export default function Navbar() {
@@ -21,7 +22,7 @@ export default function Navbar() {
         <header className="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
           <div className="col-md-3 mb-2 mb-md-0">
             <a className=" navbar-brand ">
-            <img src="src/Images/AjyadShop1.svg"  width={50} height={50} className="d-inline-block align-text-top" />
+            <img src={'/images/AjyadShop1.svg'}  width={50} height={50} className="d-inline-block align-text-top" />
 
              
             </a>
