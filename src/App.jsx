@@ -1,7 +1,6 @@
 import React, {  } from 'react'
 import About from './pages/About/components/About'
 import Home from './pages/Home/components/Home'
-
 import Products from './pages/Products/components/Products'
 import Contact from './pages/Contact/components/Contact'
 import Cart from './pages/Cart/components/Cart'
@@ -14,6 +13,14 @@ import SignIn from './pages/SignIn/components/SignIn'
 import NotFound from './pages/NotFound/NotFound'
 import SignUp from './pages/SignUp/components/SignUp';
 import CategoriesProducts from './pages/Categories/CategoriesProducts'
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import ProtectedRoutes from './components/ProtectedRoutes';
+import UserContextProvider from './context/User';
+import ProductsDetails from './pages/Products/ProductsDetails';
+import SendCode from './pages/ForgotPassword/components/SendCode';
+import ForgotPassword from './pages/ForgotPassword/components/ForgotPassword';
+
 
 const router = createBrowserRouter([
   {
@@ -31,15 +38,32 @@ const router = createBrowserRouter([
       },
       {
         path: "/Cart",
-        element: <Cart />
+        element: 
+        <ProtectedRoutes>
+          <Cart />
+          </ProtectedRoutes>
       },
       {
         path: "/Products",
-        element: <Products />
+        element: 
+        <ProtectedRoutes>
+          <Products></Products>
+        </ProtectedRoutes>
+       
+      },
+      {
+        path: "/Products/:id",
+        element:
+        <ProtectedRoutes>
+          <ProductsDetails></ProductsDetails>
+        </ProtectedRoutes>
+
       },
       {
         path: "/Categories/:id",
-        element: <CategoriesProducts />
+        element: <ProtectedRoutes> 
+          <CategoriesProducts />
+          </ProtectedRoutes>
       },
       {
         path: "/Contact",
@@ -52,7 +76,15 @@ const router = createBrowserRouter([
       {
         path: "/SignUp",
         element: <SignUp/>
-      }
+      },
+      {
+        path: "/SendCode",
+        element: <SendCode/>
+      },
+      {
+        path: "/ForgotPassword",
+        element: <ForgotPassword/>
+      },
     ]
   }
 ]);
@@ -61,8 +93,11 @@ export default function App() {
 
   return (
     <>
-      
+      <UserContextProvider>
       <RouterProvider router={router} />
+      </UserContextProvider>
+      
+      <ToastContainer />
 
     </>
   )

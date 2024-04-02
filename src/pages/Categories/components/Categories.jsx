@@ -7,7 +7,6 @@ import Loader from '../../../components/Loader';
 import Error from '../../../components/Error';
 
 
-
 export default function Categories() {
   const [categories, setCategories] = useState([]);
   const [loader , setLoader]= useState(true);
@@ -26,10 +25,11 @@ export default function Categories() {
     setLoader(false);
   }
   };
-
-  useEffect (()=>{
+  useEffect(() => {
     getCategories();
-  },[ ]);
+  }, []);
+
+
 
   if(loader){
      return <Loader/>
@@ -39,16 +39,25 @@ export default function Categories() {
   }
   return (
     <>
-    
-    <div>
-    {  categories.map(category =>
-        <div className='style' key={category._id}>
-          <img src={category.image.secure_url}/>
-          <Link to={`/Categories/${category._id}`}>Products</Link>
-        </div>
-      )}
+    <div className="container">
+      <div className="card-group">
+        {categories.map((category) => (
+          <div className="card" key={category._id}>
+            <img src={category.image.secure_url} className="card-img-top" alt={category.name} />
+            <div className="card-body">
+              <h5 className="card-title">{category.name}</h5>
+            </div>
+            <div className="card-footer">
+              <Link to={`/Categories/${category._id}`} className="btn btn-primary text-center">
+                Products
+              </Link>
+            </div>
+          </div>
+        ))}
       </div>
-    </>
+    </div>
+  </>
+  
     
   )
 }
