@@ -1,9 +1,13 @@
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
 import Loader from '../../components/Loader';
 import Error from '../../components/Error';
 import axios from 'axios';
 import { Rating } from 'react-simple-star-rating';
+import { Carousel } from 'react-bootstrap';
+
+
+
 
 export default function ProductsDetails() {
     const { id } = useParams();
@@ -48,34 +52,54 @@ export default function ProductsDetails() {
 
     return (
         <>
-            {product ? (
-
-                <div className="style container card mb-3 p-4 text-center pagination" key={product._id}>
-                    {/* <img src={product.mainImage.secure_url} width={350} className="img-thumbnail" alt={product.name} /> */}
-                    {product.subImages && product.subImages.length > 0 && (
-                        <div className="sub-thumbnail d-flex justify-content-evenly">
-                            {product.subImages.map((image, index) => (
-                                <img key={index} src={image.secure_url} width={200} className="sub-thumbnail" alt={product.name} />
-                            ))}
-                        </div>
-                    )}
-                    <div className="card-body">
-                        <h3 className="card-title">{product.name}</h3>
-                        <h5 className='text-decoration-line-through text-warning'>Price : {product.price}$</h5>
-                        <h5 className='text-primary'>Price after discount : {product.finalPrice}$</h5>
-                        <h5 className=' text-danger'>Discount : {product.discount}%</h5>
-                        <Rating initialValue={product.avgRating} />
-
-                        <p>{product.description}</p>
-                        <button className="btn btn-outline-warning btn-lg" onClick={() => addToCart(product._id)}>Add to cart</button>
-
-                    </div>
-
-
+      {product ? (
+        <div className="style container card mb-3 p-4 text-center pagination" key={product._id}>
+          <div className="row">
+            <div className="col-md-6">
+              <Carousel className="mb-3">
+                {product.subImages && product.subImages.length > 0 && product.subImages.map((image, index) => (
+                  <Carousel.Item key={index}>
+                    <img src={image.secure_url} className="d-block w-100" alt={product.name} style={{width:"15rem", height:"30rem"}}/>
+                  </Carousel.Item>
+                ))}
+              </Carousel>
+            </div>
+            <div className="col-md-6">
+              <div className="card-body">
+                <h3 className="card-title">{product.name}</h3>
+                <h5 className='text-decoration-line-through text-warning'>Price : {product.price}$</h5>
+                <h5 className='text-primary'>Price after discount : {product.finalPrice}$</h5>
+                <h5 className=' text-danger'>Discount : {product.discount}%</h5>
+                <Rating initialValue={product.avgRating} />
+                <p>{product.description}</p>
+                <button className="btn btn-outline-warning btn-lg me-3" onClick={() => addToCart(product._id)}>+ Add to cart</button>
+                <button className='btn btn-outline-warning btn-lg' ><Link to='/AddReview' className='nav-link'>Add Review</Link></button>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      ) : (
+        <>{error}</>
+      )}
+      <div className='container'>
+      <h3 className="card-subtitle mb-2 text-primary ">Product Reviews</h3>
+        <ul className="list-group list-group-flush">
+          {product.reviews.map(review => (
+            <li key={review._id} className="list-group-item ">
+              <div className="d-flex align-items-center ">
+                <img src={review.createdBy.image.secure_url} alt={review.createdBy.userName} className="me-2" style={{ width: '50px', height: '50px', borderRadius: '50%' }} />
+                <div>
+                  <h5 className="mb-0">{review.createdBy.userName}</h5>
+                  <h5 className="mb-0">{review.comment}</h5>
+                  <Rating initialValue={review.rating} readonly/>
                 </div>
-            ) : (
-                <>{error}</>
-            )}
-        </>
-    );
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+     
+    </>
+  );
 }

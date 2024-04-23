@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { createContext } from 'react'
 import { jwtDecode } from "jwt-decode";
 export const UserContext = createContext();
@@ -6,8 +6,7 @@ export const UserContext = createContext();
 const UserContextProvider = ({children}) =>{
     const [userToken,setUserToken] = useState(localStorage.getItem('userToken'));
     const [userName,setUserName] = useState(null);
-
-
+    
     const getUserData = () =>{
        
         if(userToken!=null){
